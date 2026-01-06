@@ -20,13 +20,16 @@ function App() {
     load();
   }, []);
 
+  const filteredPosts = state.posts.filter((post) => 
+  post.title.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
     <div>
       <h1>Post Dashboard</h1>
       {state.loading && <p>Loading...</p>}
       {state.error && <p>Error: {state.error}</p>}
       {!state.loading && !state.error && (
-        <PostList posts={state.posts}></PostList>
+        <PostList posts={filteredPosts}></PostList>
       )}
     </div>
   );
