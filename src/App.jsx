@@ -32,7 +32,15 @@ function App() {
       {state.loading && <p>Loading...</p>}
       {state.error && <p>Error: {state.error}</p>}
       {!state.loading && !state.error && (
-        <PostList posts={filteredPosts}></PostList>
+        <>
+          {filteredPosts.length === 0 ? (
+            <div>
+              <h3>No posts found</h3>
+            </div>
+          ) : (
+            <PostList posts={filteredPosts}></PostList>
+            )}
+            </>
       )}
     </div>
   );
