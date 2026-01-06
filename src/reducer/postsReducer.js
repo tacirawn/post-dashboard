@@ -2,7 +2,7 @@ export const initialState = {
     posts: [],
     loading: false,
     error: null
-}
+};
 
 export function postsReducer(state, action) {
     switch(action.type) {
@@ -11,4 +11,4 @@ export function postsReducer(state, action) {
         case "FETCH_ERROR": return {...state, loading: false, error: action.payLoad};
         default: return state;
     }
-}
+};

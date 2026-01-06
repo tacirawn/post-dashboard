@@ -1,11 +1,12 @@
 import './App.css'
-import {useEffect, useReducer} from 'react';
+import {useEffect, useReducer, useState} from 'react';
 import fetchPosts from './api/postsApi';
 import { postsReducer, initialState } from './reducer/postsReducer';
 import PostList from './components/PostList';
 
 function App() {
   const [state, dispatch] = useReducer(postsReducer, initialState);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     async function load() {
