@@ -1,16 +1,24 @@
-# React + Vite
+File Organization
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+src/api/: Contains postsApi.js for handling API requests (fetching data).
 
-Currently, two official plugins are available:
+src/components/: Contains UI components:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+PostList.jsx: Renders the list of posts.
 
-## React Compiler
+Post.jsx: Renders individual post cards.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+FilterForm.jsx: The search input component for filtering posts.
 
-## Expanding the ESLint configuration
+src/reducer/: Contains postsReducer.js which manages the application state (posts, loading, error).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+App.jsx: The main component that connects the reducer, API, and UI components.
+
+App.css: Styling for the application layout and components.
+
+
+Challenges
+
+Initially, the initialState was defined as a function instead of an object, causing state access issues. Corrected initialState to be a plain object { posts: [], loading: false, error: null }.
+
+The reducer was expecting action.payLoad, but the dispatch was sending payload. This resulted in empty data. Fixed the typo in postsReducer.js to match the dispatched action property (action.payload).
