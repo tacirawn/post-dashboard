@@ -1,7 +1,8 @@
-const FilterForm = () => {
+const FilterForm = ({searchTerm, onSearch}) => {
     return (
-        <div>
-            <input type="text"
+        <div className="filter">
+            <input className="filter-input"
+            type="text"
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => onSearch(e.target.value)}></input>

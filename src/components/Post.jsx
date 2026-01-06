@@ -3,7 +3,7 @@ const Post = ({post}) => {
             return null;
     };
     return(
-    <div>
+    <div className="post">
         <h2>{post.title}</h2>
         <p>{post.body}</p>
     </div>
