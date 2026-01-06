@@ -5,7 +5,8 @@ import { postsReducer, initialState } from './reducer/postsReducer';
 
 function App() {
   const [state, dispatch] = useReducer(postsReducer, initialState);
-  useEffect = () => {
+
+  useEffect(() => {
     async function load() {
       dispatch({type: "FETCH_START"});
       try {
@@ -16,11 +17,14 @@ function App() {
       }
     }
     load();
-  }, []; 
+  }, []);
 
   return (
-    <h1>Post Dashboard</h1>
-    
+    <div>
+      <h1>Post Dashboard</h1>
+      {state.loading && <p>Loading...</p>}
+      {state.error && <p>Error: {state.error}</p>}
+    </div>
   );
 }
 
