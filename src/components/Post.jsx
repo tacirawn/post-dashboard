@@ -1,7 +1,13 @@
-const Post = (post) => {
+const Post = ({post}) => {
+    if(!post){
+            return null;
+    };
+    return(
     <div>
-        <p>{post.title}, {post.body}</p>
+        <h2>{post.title}</h2>
+        <p>{post.body}</p>
     </div>
+    );
 };
 
 export default Post;
